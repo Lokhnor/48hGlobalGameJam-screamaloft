@@ -1,0 +1,8 @@
+AudioStreamPlayer
+AnimatedSprite2D
+CollisionShape2D
+CharacterBody2D
+Marker2D
+Node
+RigidBody2D
+Area2D

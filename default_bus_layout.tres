@@ -1,0 +1,19 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b7rc40golbbar"]
+
+[sub_resource type="AudioEffectRecord" id="AudioEffectRecord_p8m31"]
+resource_name = "Record"
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_se6kn"]
+resource_name = "SpectrumAnalyzer"
+
+[resource]
+bus/1/name = &"Microphone"
+bus/1/solo = false
+bus/1/mute = true
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectRecord_p8m31")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectSpectrumAnalyzer_se6kn")
+bus/1/effect/1/enabled = true
