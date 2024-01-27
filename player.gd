@@ -21,14 +21,13 @@ func _process(delta):
 	
 	if magnitude > 0.002:
 		velocity.y -= 1
+		$AnimatedSprite2D.play()
 	else:
 		velocity.y += 1
+		$AnimatedSprite2D.stop()
 		
 	if velocity.length() > 0:
 		velocity = velocity * speed
-		$AnimatedSprite2D.play()
-	else:
-		$AnimatedSprite2D.stop()
 		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
