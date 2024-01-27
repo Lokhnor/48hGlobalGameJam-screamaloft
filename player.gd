@@ -6,8 +6,9 @@ var screen_size
 var spectrum
 
 func _ready():
+	hide()
 	screen_size = get_viewport_rect().size
-	position = Vector2(240,360)
+	#position = Vector2(240,360)
 	
 	spectrum = AudioServer.get_bus_effect_instance(1,1)
 
@@ -35,3 +36,15 @@ func _process(delta):
 	if velocity.y != 0:
 		$AnimatedSprite2D.animation = "flying"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
+
+
+func _on_body_entered(body):
+	hide()
+	hit.emit()
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+	
