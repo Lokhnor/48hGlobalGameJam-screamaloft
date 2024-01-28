@@ -20,7 +20,7 @@ func _process(delta):
 	var magnitude = spectrum.get_magnitude_for_frequency_range(prev_hz, hz).length()
 	print("Audio output: ", magnitude)
 	
-	if magnitude > 0.002:
+	if magnitude > 0.01:
 		velocity.y -= 1
 		$AnimatedSprite2D.play()
 	else:
@@ -35,7 +35,6 @@ func _process(delta):
 	
 	if velocity.y != 0:
 		$AnimatedSprite2D.animation = "flying"
-		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 
 func _on_body_entered(body):

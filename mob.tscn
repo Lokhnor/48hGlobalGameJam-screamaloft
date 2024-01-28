@@ -1,42 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://7dj4g5met4io"]
+[gd_scene load_steps=11 format=3 uid="uid://7dj4g5met4io"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_8i7jm"]
-[ext_resource type="Texture2D" uid="uid://c6yfniklg8ah0" path="res://art/enemyFlyingAlt_1.png" id="1_x6fit"]
-[ext_resource type="Texture2D" uid="uid://bwlyahpucos3d" path="res://art/enemyFlyingAlt_2.png" id="2_th1hj"]
+[ext_resource type="Texture2D" uid="uid://ccns7epr26vuj" path="res://art/mob_1.png" id="2_0iqo1"]
+[ext_resource type="Texture2D" uid="uid://bykwch7q2yia7" path="res://art/mob_3.png" id="2_0j84n"]
+[ext_resource type="Texture2D" uid="uid://pt1f4y8gpe4e" path="res://art/mob_6.png" id="3_s533f"]
+[ext_resource type="Texture2D" uid="uid://bc2jsc5nxkiwi" path="res://art/mob_5.png" id="3_vi1nq"]
+[ext_resource type="Texture2D" uid="uid://cs7knn6mag7n" path="res://art/mob_2.png" id="3_yhsat"]
+[ext_resource type="Texture2D" uid="uid://chc7mf61ux8vr" path="res://art/mob_4.png" id="4_x7ibb"]
+[ext_resource type="Texture2D" uid="uid://bv00ig7ww8xlp" path="res://art/mob_7.png" id="8_terxn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r2e02"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_x6fit")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_th1hj")
+"texture": ExtResource("2_0j84n")
 }],
 "loop": true,
-"name": &"fly",
-"speed": 3.0
+"name": &"background",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s533f")
+}],
+"loop": true,
+"name": &"fun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vi1nq")
+}],
+"loop": true,
+"name": &"ray_tracing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x7ibb")
+}],
+"loop": true,
+"name": &"score",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0iqo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yhsat")
+}],
+"loop": true,
+"name": &"sound",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_terxn")
+}],
+"loop": true,
+"name": &"story",
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m3d1t"]
-radius = 35.0
-height = 74.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uhfu"]
+size = Vector2(68, 68)
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
+position = Vector2(5, 0)
 collision_mask = 0
 gravity_scale = 0.0
 script = ExtResource("1_8i7jm")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+position = Vector2(14, 0.500002)
+scale = Vector2(0.68, 0.985294)
 sprite_frames = SubResource("SpriteFrames_r2e02")
-animation = &"fly"
-frame_progress = 0.168757
+animation = &"story"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, 0)
-shape = SubResource("CapsuleShape2D_m3d1t")
+position = Vector2(14, 0.5)
+shape = SubResource("RectangleShape2D_3uhfu")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

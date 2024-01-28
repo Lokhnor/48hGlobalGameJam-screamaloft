@@ -16,7 +16,7 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func show_game_over():
-	show_message("Game Over")
+	show_message("(Snarky passive-aggressive joke)")
 	await $MessageTimer.timeout
 	
 	$Message.text = "Scream to win!"
